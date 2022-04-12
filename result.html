@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Keeper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <!-- drop down to select two players -->
+    <div class="content">
+        <form action="#" method="POST" id="playerSubmit" name="playerSubmit">
+            <div>
+                <label for="player1">player1:</label>
+                <select id="player1" name="player1">
+
+                </select>
+                <label for="player2">player2:</label>
+                <select id="player2" name="player2">
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <!-- button to compare the two players -->
+                <div>
+                    <input type="submit" value="Compare" name="submit" />
+                </div>
+                <!-- button to go back to home page -->
+                <div>
+                    <button type="submit" onclick="handleHome()" class="btn btn-primary" id="submitButton">Go
+                        Home</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="resultcontent">
+        <div id="comparedResult1" class="hidden">
+            <div class="flexContainer">
+                <!-- result content for the batsmen and wicket keeper as they both share same stats -->
+                <div class="contentContainer">
+                    <!-- name,style, ranking, notOut, runs, highScore, average,strikeRate, hundreds, fifty, image                -->
+                    <h2>Name:<span id="player1Name"></span></h2>
+                    <p>Style:<span id="player1Style"></span></p>
+                    <p>Ranking:<span id="player1Ranking"></span></p>
+                    <p><span id="player1RankingWon"></span></p>
+                    <p>Not Out:<span id="player1NotOut"></span></p>
+                    <p><span id="player1NotOutWon"></span></p>
+                    <p>Runs:<span id="player1Runs"></span></p>
+                    <p><span id="player1RunsWon"></span></p>
+                    <p>High Score:<span id="player1HighScore"></span></p>
+                    <p><span id="player1HighScoreWon"></span></p>
+                    <p>Average:<span id="player1Average"></span></p>
+                    <p><span id="player1AverageWon"></span></p>
+                    <p>Strike Rate:<span id="player1StrikeRate"></span></p>
+                    <p><span id="player1StrikeRateWon"></span></p>
+                    <p>Hundreds:<span id="player1Hundreds"></span></p>
+                    <p><span id="player1HundredsWon"></span></p>
+                    <p>Fifty:<span id="player1Fifty"></span></p>
+                    <p><span id="player1FiftyWon"></span></p>
+                </div>
+                <div class="contentContainer">
+                    <h2>Name:<span id="player2Name"></span></h2>
+                    <p>Style:<span id="player2Style"></span></p>
+                    <p>Ranking:<span id="player2Ranking"></span></p>
+                    <p><span id="player2RankingWon"></span></p>
+                    <p>Not Out:<span id="player2NotOut"></span></p>
+                    <p><span id="player2NotOutWon"></span></p>
+                    <p>Runs:<span id="player2Runs"></span></p>
+                    <p><span id="player2RunsWon"></span></p>
+                    <p>High Score:<span id="player2HighScore"></span></p>
+                    <p><span id="player2HighScoreWon"></span></p>
+                    <p>Average:<span id="player2Average"></span></p>
+                    <p><span id="player2AverageWon"></span></p>
+                    <p>Strike Rate:<span id="player2StrikeRate"></span></p>
+                    <p><span id="player2StrikeRateWon"></span></p>
+                    <p>Hundreds:<span id="player2Hundreds"></span></p>
+                    <p><span id="player2HundredsWon"></span></p>
+                    <p>Fifty:<span id="player2Fifty"></span></p>
+                    <p><span id="player2FiftyWon"></span></p>
+                </div>
+            </div>
+            <!-- a line showing the best player among the both -->
+            <div>
+                <p>The Best <span id="resultRole"></span> between them is <span id="resultName"></span></p>
+            </div>
+            <!-- button to go back the previous page of comparing two players -->
+            <div>
+                <button type="submit" onclick="handleSubmit()" class="btn btn-primary" id="submitButton">Go
+                    Back</button>
+            </div>
+        </div>
+
+        <!-- name,ranking,style,runs,wickets,economy,average,strikeRate,fiveW,tenW,image -->
+        <div id="comparedResult2" class="hidden">
+            <div class="flexContainer">
+                <!-- result content for the bowlers -->
+                <div class="contentContainer">
+                    <h2>Name:<span id="player1bName"></span></h2>
+                    <p>Style:<span id="player1bStyle"></span></p>
+                    <p>Ranking:<span id="player1bRanking"></span></p>
+                    <p><span id="player1bRankingWon"></span></p>
+                    <p>Wickets:<span id="player1bWickets"></span></p>
+                    <p><span id="player1bWicketsWon"></span></p>
+                    <p>Runs:<span id="player1bRuns"></span></p>
+                    <p><span id="player1bRunsWon"></span></p>
+                    <p>Economy:<span id="player1bEconomy"></span></p>
+                    <p><span id="player1bEconomyWon"></span></p>
+                    <p>Average:<span id="player1bAverage"></span></p>
+                    <p><span id="player1bAverageWon"></span></p>
+                    <p>Strike Rate:<span id="player1bStrikeRate"></span></p>
+                    <p><span id="player1bStrikeRateWon"></span></p>
+                    <p>Five Wickets:<span id="player1bFiveW"></span></p>
+                    <p><span id="player1bFiveWWon"></span></p>
+                    <p>Ten Wickets:<span id="player1bTenW"></span></p>
+                    <p><span id="player1bTenWWon"></span></p>
+                </div>
+                <div class="contentContainer">
+                    <h2>Name:<span id="player2bName"></span></h2>
+                    <p>Style:<span id="player2bStyle"></span></p>
+                    <p>Ranking:<span id="player2bRanking"></span></p>
+                    <p><span id="player2bRankingWon"></span></p>
+                    <p>Wickets:<span id="player2bWickets"></span></p>
+                    <p><span id="player2bWicketsWon"></span></p>
+                    <p>Runs:<span id="player2bRuns"></span></p>
+                    <p><span id="player2bRunsWon"></span></p>
+                    <p>Economy:<span id="player2bEconomy"></span></p>
+                    <p><span id="player2bEconomyWon"></span></p>
+                    <p>Average:<span id="player2bAverage"></span></p>
+                    <p><span id="player2bAverageWon"></span></p>
+                    <p>Strike Rate:<span id="player2bStrikeRate"></span></p>
+                    <p><span id="player2bStrikeRateWon"></span></p>
+                    <p>Five Wickets:<span id="player2bFiveW"></span></p>
+                    <p><span id="player2bFiveWWon"></span></p>
+                    <p>Ten Wickets:<span id="player2bTenW"></span></p>
+                    <p><span id="player2bTenWWon"></span></p>
+                </div>
+            </div>
+            <!-- a line showing the best player among the both -->
+            <div>
+                <p><span id="resultRoleb"></span><span id="resultNameb"></span></p>
+            </div>
+            <!-- button to go back the previous page of comparing two players -->
+            <div>
+                <button type="submit" onclick="handleSubmit()" class="btn btn-primary" id="submitButton">Go
+                    Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+</body>
+
+</html>

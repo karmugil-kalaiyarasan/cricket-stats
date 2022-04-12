@@ -1,0 +1,59 @@
+.content {
+  text-align: center;
+  /* padding-top: 30%; */
+  /* margin-left: 30%;
+    margin-right:30%;
+    margin-top: 25%; */
+  color: white;
+}
+
+.contentindex {
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 25%;
+}
+
+.resultcontent {
+  text-align: center;
+  top: 0;
+  /* padding: 30%; */
+  /* margin-right:30%;
+    margin-top: 25%; */
+  color: black;
+}
+
+.check {
+  color: black;
+}
+
+body {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("../images/wp3049872.jpg");
+  background-size: cover;
+  opacity: 100%;
+  /* background: linear-gradient(
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.2)
+  ); */
+}
+
+html {
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.flexContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.contentContainer {
+  flex: 1 0 0;
+}
